@@ -11,6 +11,12 @@ initial state.
 Hitting the refresh button (including hard refresh) in the browser will not cause
 any change in the state of the app (it should work like a regular offline app).
 
+# Installation
+
+        git clone git@github.com:SmitTrivedi23/react_todo_assignment.git
+
+or you can download zip file
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
