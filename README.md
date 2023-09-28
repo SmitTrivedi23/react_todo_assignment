@@ -2,7 +2,7 @@
 
 A simple input bar to add Todo(s) on pressing the return key.
 A list of TODO cards where each todo is appended on creation.
-Clicking on a TODO card should mark the TODO as complete and move it to the
+Clicking on a TODO card will mark the TODO as complete and move it to the
 bottom of the list.
 The active TODO cards will appear in order of creation (most recent on top), while
 the completed todo cards will appear in order of completion (most recent on top).
