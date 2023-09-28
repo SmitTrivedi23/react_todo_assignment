@@ -1,26 +1,36 @@
 import React, { useState } from "react";
 
-const TodoInput = ({addTodo}) => {
+const TodoInput = ({ addTodo }) => {
   const [text, setText] = useState("");
 
   const handleChange = (e) => {
     setText(e.target.value);
   };
-
-  const handleKeyDown =(e) =>{
-    if(e.key === 'Enter' && text.trim() !== ''){
-        addTodo(text);
-        setText('')
+  const handleAddTodo = () => {
+    if (text.trim() !== "") {
+      addTodo(text);
+      setText("");
     }
-  }
+  };
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter" && text.trim() !== "") {
+      addTodo(text);
+      setText("");
+    }
+  };
   return (
-    <input
-      type="text"
-      placeholder="Add a new todo here..."
-      value={text}
-      onChange={handleChange}
-      onKeyDown={handleKeyDown}
-    />
+    <div className="todo-input-container">
+      <input
+        type="text"
+        placeholder="Add a new task..."
+        value={text}
+        onChange={handleChange}
+        onKeyDown={handleKeyDown}
+      />
+      <button className="add-button" onClick={handleAddTodo}>
+        Add
+      </button>
+    </div>
   );
 };
 

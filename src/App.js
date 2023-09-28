@@ -6,14 +6,12 @@ import ResetButton from "./components/ResetButton";
 
 function App() {
   const [todos, setTodos] = useState(() => {
-    // Initialize todos from localStorage or an empty array if there's no data
-    const storedTodos = JSON.parse(localStorage.getItem('todos'));
+    const storedTodos = JSON.parse(localStorage.getItem("todos"));
     return storedTodos || [];
   });
 
-  // Save TODOs to localStorage whenever the todos state changes
   useEffect(() => {
-    localStorage.setItem('todos', JSON.stringify(todos));
+    localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
   const addTodo = (text) => {
     const newTodo = { text, completed: false, id: Date.now() };
@@ -24,6 +22,7 @@ function App() {
     const updatedTodos = todos.map((todo) =>
       todo.id === id ? { ...todo, completed: true } : todo
     );
+
     const sortedTodos = updatedTodos.sort((a, b) => {
       if (a.completed && !b.completed) {
         return 1;
@@ -33,19 +32,24 @@ function App() {
       }
       return 0;
     });
-    setTodos(sortedTodos)
+
+    setTodos(sortedTodos);
   };
-  
-  const resetTodos = () =>{
+
+  const resetTodos = () => {
     setTodos([]);
-  }
+  };
 
   return (
     <div className="App">
-      <h1>Todo App</h1>
-      <TodoInput addTodo={addTodo}/>
-      <TodoList todos={todos} completeTodo={completeTodo} />
+      <div className="app-content">
       <ResetButton resetTodos={resetTodos} />
+      <h1>Todo App</h1>
+      <TodoInput addTodo={addTodo} />
+      <div className="todo-container">
+        <TodoList todos={todos} completeTodo={completeTodo} />
+      </div>
+      </div>
     </div>
   );
 }
