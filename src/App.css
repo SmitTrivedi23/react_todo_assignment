@@ -17,7 +17,7 @@ body {
   max-width: 500px;
   max-height: 80vh;
   text-align: center;
-  overflow: hidden;
+  overflow: auto;
   margin-right: 200px;
  
 }
